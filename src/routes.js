@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Home } from "./views/Home";
 import { Movies } from "./views/movies/Movies";
 import { RootLayout } from "./views/RootLayout";
+import { MovieDetail } from './views/movies/detail/Detail';
 
 export const routes = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ export const routes = createBrowserRouter([
             {
                 path: "/movies",
                 element: <Movies />,
+            },
+            {
+                path: "/movies/:id",
+                element: <MovieDetail />,
             },
         ]
     }

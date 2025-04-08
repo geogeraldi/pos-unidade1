@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getPopularMovies } from '../services/movies.service';
+import { getMovie, getPopularMovies } from '../services/movies.service';
 
 //hook é uma função para abstrair as funções customizaveis dos estados dos componentes
 
@@ -16,11 +16,11 @@ export function useMovies() {
 }
 
 export function useMovie(id) {  
-    const [movie, setMovie] = useState(null);
+    const [movie, setMovie] = useState([]);
     
     useEffect(() => {   
-        getPopularMovies(id).then(({data}) => {
-            setMovie(data.results);
+        getMovie(id).then(({data}) => {
+            setMovie(data);
         })
     }, [id]);
     
